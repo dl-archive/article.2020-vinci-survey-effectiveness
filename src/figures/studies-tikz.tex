@@ -1,0 +1,41 @@
+
+
+\definecolor{plots-blue}{RGB}{77,115,167}%
+\makeatletter
+\newcommand\printtwodigits[1]{\two@digits{#1}}
+\makeatother
+\begin{tikzpicture}[
+]
+\begin{axis}[name=plot-main,
+	ybar,
+	xmin=1992,
+	xmax=2018,
+	ymin=0,
+	ymax=13,
+	axis x line*=bottom,
+	hide y axis,
+	width=1.17\columnwidth,
+	height=2.4cm,
+	enlarge x limits=0.04,
+	nodes near coords,
+	bar width=6pt,
+	every node near coord/.style={
+	    color=black,
+	    font=\scriptsize,
+	},
+	xtick={1992, ..., 2018},
+	xticklabel={
+    	\pgfmathparse{mod(\tick,100)}
+        \pgfmathtruncatemacro{\shortenedyear}{\pgfmathresult}
+        \pgfmathsetbasenumberlength{2}
+	    '$\printtwodigits{\shortenedyear}$
+    },
+	x tick label style={rotate=90,anchor=east,font=\footnotesize},
+	/pgf/number format/1000 sep={},
+	]
+	\addplot+[fill=black,
+	draw=none,
+	] table[x index=1,y index=0,col sep=semicolon] {data/studies-per-year-summarized.txt};
+\end{axis}
+
+\end{tikzpicture}%

@@ -1,0 +1,177 @@
+
+
+\pgfdeclareplotmark{mysquare}{%
+	\path[draw=black] (-0.5\pgfplotmarksize,-0.5\pgfplotmarksize) rectangle (0.5\pgfplotmarksize,0.5\pgfplotmarksize);%
+}%
+\pgfdeclareplotmark{mycross}{%
+	\path[draw=black] (0.0,0.0) circle (0.5\pgfplotmarksize);%
+	\path[draw=black] (-0.5\pgfplotmarksize,-0.5\pgfplotmarksize) -- (0.5\pgfplotmarksize,0.5\pgfplotmarksize);%
+	\path[draw=black] (-0.5\pgfplotmarksize,0.5\pgfplotmarksize) -- (0.5\pgfplotmarksize,-0.5\pgfplotmarksize);%
+}%
+\definecolor{plots-laboratory}{RGB}{106, 169,108}%
+\definecolor{plots-online}{RGB}{77,115,167}%
+\definecolor{plots-mturk}{RGB}{75,187,187}%
+\newlength{\axislabellength}%
+\settowidth{\axislabellength}{\small 1}%
+\newcommand*{\printmedian}{}
+\newcommand*{\participantsplots}{
+\addplot+ [boxplot={draw position=14},
+my boxplot,
+laboratory style,
+] table[x index=0,y index=0] {data/participants-laboratory-vtc.csv} \printmedian;
+\addplot+[online style, only marks] table[x index=0,y expr=13] {data/participants-online-vtc.csv};
+\addplot+ [boxplot={draw position=12},
+my boxplot,
+mturk style,
+] table[x index=0,y index=0] {data/participants-mturk-vtc.csv} \printmedian;
+\addplot+ [boxplot={draw position=10},
+my boxplot,
+laboratory style,
+] table[x index=0,y index=0] {data/participants-laboratory-configuration.csv} \printmedian;
+\addplot+ [boxplot={draw position=9},
+my boxplot,
+online style,
+] table[x index=0,y index=0] {data/participants-online-configuration.csv} \printmedian;
+\addplot+[mturk style, only marks] table[x index=0,y expr=8] {data/participants-mturk-configuration.csv};
+\addplot+ [boxplot={draw position=6},
+my boxplot,
+laboratory style,
+] table[x index=0,y index=0] {data/participants-laboratory-usability.csv} \printmedian;
+\addplot+[laboratory style, only marks] table[x index=0,y expr=2] {data/participants-laboratory-meta.csv};
+\addplot+[online style, only marks] table[x index=0,y expr=1] {data/participants-online-meta.csv};
+\addplot+[mturk style, only marks] table[x index=0,y expr=0] {data/participants-mturk-meta.csv};
+\newcommand{\xValue}{0}%
+\foreach \xValue in {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200, 250, 300,350} {%
+	\edef\temp{\noexpand\draw[thin,dotted,draw=gray] (axis cs:\xValue,0.5) -- (axis cs:\xValue,14.5);}%
+	\temp%
+}%
+\newcommand{\yValue}{0}%
+\foreach \yValue in {3, 7, 11} {%
+	\edef\temp{\noexpand\draw[thin,draw=gray] (axis cs:0,\yValue) -- (axis cs:420,\yValue);}%
+	\temp
+}%
+}%
+\normalsize
+\begin{tikzpicture}[
+my legend style/.style={
+	rectangle,
+	draw,
+	very thin,
+	minimum width=15pt,
+},
+laboratory style/.style={
+	fill=plots-laboratory,
+	mark=mysquare,
+	every mark/.append style={fill=plots-laboratory},
+	every path/.style={postaction={
+			nomorepostaction,
+			pattern=north east lines,
+			pattern color=white,
+	}}
+},
+laboratory legend style/.style={
+	my legend style,
+	preaction={fill, plots-laboratory},
+	pattern=north east lines,
+	pattern color=white
+},
+online style/.style={
+	fill=plots-online,
+	mark=mysquare,
+	every mark/.append style={fill=plots-online},
+	every path/.style={postaction={
+			nomorepostaction,
+			pattern=north west lines,
+			pattern color=white,
+	}},
+},
+online legend style/.style={
+	my legend style,
+	preaction={fill, plots-online},
+	pattern=north west lines,
+	pattern color=white
+},
+mturk style/.style={
+	fill=plots-mturk,
+	mark=mysquare,
+	every mark/.append style={fill=plots-mturk},
+	every path/.style={postaction={
+			nomorepostaction,
+			pattern=crosshatch dots,
+			pattern color=white,
+	}},
+},
+mturk legend style/.style={
+	my legend style,
+	preaction={fill, plots-mturk},
+	pattern=crosshatch dots,
+	pattern color=white
+}
+]
+\begin{axis}[name=plot-main,
+	scale only axis,
+	hide y axis,
+	axis x line*=bottom,
+	xmin=0,
+	xmax=105,
+	ymin=-1.5,
+	ymax=14.5,
+	y=7pt,
+	mark size=4pt,
+	width=0.7\linewidth-1\axislabellength,
+	my boxplot/.style={
+		boxplot={
+			box extend=0.8,
+			whisker extend=0.6
+		},
+		fill,
+		draw=black,
+		very thin,solid,
+	},
+	]
+	\participantsplots{}
+\end{axis}
+
+\begin{axis}[name=plot-outlier,
+	at={($(plot-main.east)+(-0.0cm,0cm)$)},anchor=west,
+	scale only axis,
+	hide y axis,
+	axis x line*=bottom,
+	axis x discontinuity=parallel,
+	xmin=110,
+	xmax=430,
+	ymin=-1.5,
+	ymax=14.5,
+	y=7pt,
+	mark size=4pt,
+	width=0.3\linewidth-0*\axislabellength,
+	my boxplot/.style={
+		boxplot={
+			box extend=0.7,
+			whisker extend=0.6
+		},
+		fill,
+		draw=black,
+		very thin,solid,
+	},
+	nodes near coords={\pgfmathprintnumber{\pgfkeysvalueof{/data point/x}}},
+	every node near coord/.style={
+		color=black,
+		font=\footnotesize,
+	},
+	]
+	\participantsplots{}
+	
+	\node[anchor=east] at (axis cs:430,13) { VTC };
+	\node[anchor=east] at (axis cs:430,9) { Configuration };
+	\node[anchor=east] at (axis cs:430,5) { Usability };
+	\node[anchor=east] at (axis cs:430,1) { Meta };
+\end{axis}
+
+\path[] (plot-main.south) |- (0.5\linewidth, 0) node[pos=1.0] (legend-anchor) {};
+\matrix[below=3pt of legend-anchor,column sep=0.5cm,row sep=0.5cm,anchor=north]{
+	\node[laboratory legend style,label={[text depth=0.0pt]0:Laboratory}] {}; &
+	\node[online legend style,label={[text depth=0.0pt]0:Online}] {}; &
+	\node[mturk legend style,label={[text depth=0.0pt]0:Mechanical Turk}] {};\\
+};
+\end{tikzpicture}%
