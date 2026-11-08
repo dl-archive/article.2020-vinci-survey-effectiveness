@@ -4,7 +4,7 @@
 
 *Proceedings of the 13th International Symposium on Visual Information Communication and Interaction (VINCI '20)*, December 8–10, 2020, Eindhoven, Netherlands. ACM, pp. 2:1–10.
 
-DOI: [10.1145/3430036.3430054](https://doi.org/10.1145/3430036.3430054) · Author's version: Zenodo *(pending)* · [ResearchGate](https://www.researchgate.net/publication/346565359) · Data set: [varg-dev/treemap-studies](https://github.com/varg-dev/treemap-studies)
+DOI: [10.1145/3430036.3430054](https://doi.org/10.1145/3430036.3430054) · Author's version: [Zenodo](https://doi.org/10.5281/zenodo.24061876) · [ResearchGate](https://www.researchgate.net/publication/346565359) · Data set: [varg-dev/treemap-studies](https://github.com/varg-dev/treemap-studies)
 
 > Treemaps are a commonly used tool for the visual display and communication of tree-structured, multi-variate data.
 > In order to confidently know when and how treemaps can best be applied, the research community uses usability studies and controlled experiments to "understand the potential and limitations of our tools" (Plaisant, 2004).
