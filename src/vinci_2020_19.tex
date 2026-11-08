@@ -82,6 +82,9 @@ Communication and Interaction (VINCI 2020), December 8--10, 2020,
 Eindhoven, Netherlands}\acmDOI{10.1145/3430036.3430054}
 \acmISBN{978-1-4503-8750-7/20/12}
 
+\usepackage{eso-pic}
+\AddToShipoutPictureFG{\AtPageLowerLeft{\put(\LenToUnit{0.5\paperwidth},\LenToUnit{6mm}){\makebox[0pt][c]{\fontsize{6.5}{8}\selectfont\color{gray}Author's revised version (2026-11-08). Version of record: https://doi.org/10.1145/3430036.3430054}}}}
+
 \begin{document}
 
 \title{Survey on User Studies on the Effectiveness of Treemaps}
@@ -119,9 +122,9 @@ Eindhoven, Netherlands}\acmDOI{10.1145/3430036.3430054}
 \renewcommand{\shortauthors}{C. Fiedler, W. Scheibel, D. Limberger, M. Trapp, and J. D{\"o}llner}
 
 \begin{abstract}
-    Treemaps are a commonly used tool for the visual display and communication of tree-structured, multi-variate data.
+    Treemaps are a commonly used tool for the visual display and communication of tree-structured, multivariate data.
  	In order to confidently know when and how treemaps can best be applied, the research community uses usability studies and controlled experiments to \enquote{understand the potential and limitations of our tools}~(Plaisant, 2004).
-    To support the communities' understanding and usage of treemaps, this survey provides a comprehensive review and detailed overview of 69 user studies related to treemaps.
+    To support the community's understanding and usage of treemaps, this survey provides a comprehensive review and detailed overview of 69 user studies related to treemaps.
     However, due to pitfalls and shortcomings in design, conduct, and reporting of the user studies, there is little that can be reliably derived or accepted as a generalized statement.
     Fundamental open questions include configuration, compatible tasks, use cases, and perceptional characteristics of treemaps.
     The reliability of findings and statements is discussed and common pitfalls of treemap user studies are identified.
@@ -177,13 +180,13 @@ They provide the opportunity to detect shortcomings and pitfalls but also reveal
 Common evaluation methods are metric-based evaluations, heuristics, or case studies.
 User studies are a popular method as they \enquote{offer a scientifically sound method to measure a visualization's performance} and \enquote{can be used to evaluate the strengths and weaknesses of different visualization techniques}~\cite{kosara2003-userstudies}.
 Further, user studies are able to provide data on which approach suits a certain objective best and which properties are more likely to achieve desired results.
-It investigates \enquote{why a particular technique is effective} and whether it is \enquote{useful in a practical sense}~\cite{kosara2003-userstudies}.
+They examine \enquote{why a particular technique is effective} and whether it is \enquote{useful in a practical sense}~\cite{kosara2003-userstudies}.
 
 Similar to this paper, other publications reviewed a body of work to assess user studies and other means of evaluation for visualization techniques.
 As main distinction, these reviews do not focus on treemap visualization techniques but filter by publication venue or problem domain.
 As such, Lam et~al. tagged 361 papers on user studies in information visualization and derived seven scenario categories~\cite{lam2012-empirical}.
 These categories were extended by reviewing 581 user studies~\cite{isenberg2013-review}.
-Resulting from this, the authors concluded that the research community focuses on \enquote{evaluations of algorithmic performance [\ldots] and qualitative result inspections [\ldots] through images}~\cite{isenberg2013-review} with a lack on \emph{communication through visualization} and \emph{collaborative data analysis} for their initial set of publications.
+Resulting from this, the authors concluded that the research community focuses on \enquote{evaluations of algorithmic performance [\ldots] and qualitative result inspections [\ldots] through images}~\cite{isenberg2013-review} with a lack of \emph{communication through visualization} and \emph{collaborative data analysis} for their initial set of publications.
 With a focus on the software visualization domain, Merino et~al. provided a review on software evaluation and visualization techniques covering 181 evaluation papers, whereof 81 papers documented evaluation with user feedback~\cite{merino2018-review}.
 
 \subsection{Methods for User Evaluation}
@@ -195,17 +198,17 @@ Alternative categorizations for information visualization evaluation were presen
 As an appropriate analysis would go beyond the scope of this report, this review concentrates on the former two, more focused categorizations.
 
 \paragraph{\textbf{Types of User Studies for Software Evaluation}}
-Gondy Leroy suggested a summary of most common evaluation types for software evaluation~\cite{leroy2011-designing}.
+Gondy Leroy suggested a summary of the most common evaluation types for software evaluation~\cite{leroy2011-designing}.
 Although researchers may use \emph{case studies}, \emph{field studies}, or \emph{descriptive studies} to explain and answer difficult questions, they are not necessarily representative~\cite{plaisant2004-evaluation}. To obtain reproducible results, controlled experiments or their moderated variants are needed:
 \par
 \emph{Correlation studies} describe changes in certain variables. 
-The intention is to identify where a change in one variable coincides with change in other.
+The intention is to identify where a change in one variable coincides with change in another.
 They cannot detect the direction of causation though.
-\emph{Controlled experiments} evaluate the impact, benefit or drawbacks of information systems.
+\emph{Controlled experiments} evaluate the impact, benefits, or drawbacks of information systems.
 They are often referred to as demonstration studies, randomized controlled trials, or comparative studies.
 Researchers control one or more variables to measure values of one or multiple outcomes. 
-This allows to validate causation.
-If a random assignment of participants to experiment conditions is not possible---for example due to time, geographical, or social constraints---a \emph{quasi~experiment} is conducted instead.
+This allows validating causation.
+If a random assignment of participants to experiment conditions is not possible---for example due to time, geographical, or social constraints---a \emph{quasi-experiment} is conducted instead.
 The chosen type defines the transferability of the user study results to a more general level and whether causation could be shown.
 
 \paragraph{\textbf{Evaluation Practices}} %
@@ -213,14 +216,14 @@ Catherine Plaisant~\cite{plaisant2004-evaluation} presented a categorization for
 The four categories provide insights on what is compared in which environment (comparison method).
 First, \emph{controlled experiments comparing different techniques} are user studies that compare two or more different techniques.
 These are referred to as \emph{visualization techniques comparisons} (VTC) and are typically used to contrast new techniques with existing ones.
-The second category is \emph{controlled experiment comparing design elements} of an individual visualization technique.
+The second category is \emph{controlled experiments comparing design elements} of an individual visualization technique.
 Such studies compare a parameterization with another configuration, e.g., mappings of information to visual display.
-For treemaps, we consider three sub-categories: \emph{layout}, \emph{visual variables}, and \emph{configuration} of treemap.
+For treemaps, we consider three sub-categories: \emph{layout}, \emph{visual variables}, and \emph{configuration} of treemaps.
 The third category is \emph{usability evaluation}. 
 It can provide feedback on a certain visualization tool and prioritize its subsequent improvement and refinement.
-Finally and least common, \emph{case studies} enable evaluation in realistic settings, and, similar to Leroy's categorization, facilitate to demonstrate in-context usefulness.
+Finally and least common, \emph{case studies} enable evaluation in realistic settings, and, similar to Leroy's categorization, facilitate demonstrating in-context usefulness.
 The results of a case study, however, may not be replicable and generalizable~\cite{plaisant2004-evaluation}. Such studies are therefore not included.
-During our review we found a number of user studies that do not fit into the categories.
+In our review, we found a number of user studies that do not fit into the categories.
 They all deal with treemaps on a meta level in relation to communication and aesthetic perception, or more precisely visual quality, and are assigned to a \emph{meta} category.
 
 \subsection{Design and Conduct of User Studies}%
@@ -237,7 +240,7 @@ Design problems often emerge from a discrepancy between the research goal and th
 Typical, critical design decisions are determining the independent variables and tasks participants have to perform.
 Further difficulties are the formulation of hypotheses that fit the research goal, the establishment of appropriate control conditions, and the occurrence of interfering variables~\cite{ware2013-infovis}.
 In the broad field of statistical analysis, researchers might lose track or are not aware of implications and exact meaning of results.
-Despite methodological sources of error, some user studies lack appropriate and fair control conditions---e.g., another visualization that does not implement a feature in a comparable way---and cause an a-priori biased result.
+Besides methodological sources of error, some user studies lack appropriate and fair control conditions---e.g., another visualization that does not implement a feature in a comparable way---and cause an a-priori biased result.
 On top of that, the expectation of the research community has an influence on the way the results of an experiment are published:
 it \enquote{is easier to publish results that confirm a hypothesis than results showing no effects}~\cite{ware2013-infovis}.
 However, this promotes claims \enquote{that go far beyond the results} and seems to be a common, though certainly unintended, practice.
@@ -250,7 +253,7 @@ Researchers should (1) guarantee comprehensibility of their studies by describin
 Study replications are essential to confirm results in a validation process but those are rare~\cite{isenberg2013-review,ware2013-infovis}.
 In addition, researchers should evaluate not only their tool, but also independently evaluate the underlying visualization technique and used technology.
 For this, however, it is essential to understand any implementation of a visualization as a specialized instance of that visualization (not the visualization itself).
-The utility of a specific treemap implementation, for example, might be strongly effected by its aesthetics, responsiveness, colors and shading, size, use of additional graphical effects, embedding in a GUI and the GUI itself, peripherals, and many other aspects.
+The utility of a specific treemap implementation, for example, might be strongly affected by its aesthetics, responsiveness, colors and shading, size, use of additional graphical effects, embedding in a GUI and the GUI itself, peripherals, and many other aspects.
 These, however, are aspects that are not necessarily an inherent part of a treemap visualization technique.
 If a sound distinction or exclusion of such aspects is not feasible, the goals of respective studies should be reviewed exhaustively and awareness of respective factors should be increased.
 \par
@@ -263,7 +266,7 @@ Since there are no widely used models on evaluation topics in information visual
     \item[Communication] refers to the language and metaphors used to introduce and talk about visualization techniques and tasks.
     \item[Configuration] refers to specific choice of values for a parameterized visualization technique.
 \end{description}
-These concepts relates as follows. To solve a \emph{communicated} task within an \emph{use case} scenario, a user \emph{perceives} the visual output of a properly \emph{configured} information visualization and \emph{interacts} with it.
+These concepts relate as follows. To solve a \emph{communicated} task within a \emph{use case} scenario, a user \emph{perceives} the visual output of a properly \emph{configured} information visualization and \emph{interacts} with it.
 
 \section{User Studies on Treemaps} %
 \label{sec:summary}
@@ -279,7 +282,7 @@ We selected papers that include evaluations and studies with participants, where
 If multiple user studies are documented within one publication, they are treated as different studies within the review and analysis.
 We identified 69 user studies in according publications on treemaps until 2018 and considered all of them for structural analysis and 63 of them for the evaluation of the results.
 Thereby, we excluded case studies as they are hard to reproduce and the statement generalization is limited~\cite{plaisant2004-evaluation}.
-More details on the excluded studies is provided in Section~\ref{sec:summary:findings}. 
+More details on the excluded studies are provided in Section~\ref{sec:summary:findings}. 
 The per-year distribution is shown in Figure~\ref{fig:studycount}.
 \begin{figure}[t]%
 	\centering%
@@ -305,14 +308,14 @@ Of the six layout algorithms, only the \emph{Strip} and \emph{Squarified} algori
 The evaluation data type was purely \emph{qualitative} in four studies and purely \emph{quantitative} in more than three quarters of the studies.
 The latter use more than 80\,\% of \emph{effectiveness} and \emph{efficiency} measures~\cite{leroy2011-designing} for their dependent variables.
 Less than half used \emph{satisfaction} measures.
-The size of used data sets ranged broadly from five to 200\,000 nodes with \emph{VTC} studies using the most extensive data sets in average and \emph{meta} studies the smallest.
+The size of used data sets ranged broadly from five to 200\,000 nodes with \emph{VTC} studies using the most extensive data sets on average and \emph{meta} studies the smallest.
 For studies targeting \emph{visual variables}, most did not include an actual real-world data set.
 Almost three quarters of the studies were conducted in a \emph{laboratory} setting, while \emph{online} and \emph{Mechanical Turk} studies accounted for only one eighth each.
 The number of participants ranged from five to 285 (Figure~\ref{fig:participants}). %
 
-The most common configuration of treemaps were \emph{2D} \emph{rectangular} treemaps.
+The most common configuration of treemaps was \emph{2D} \emph{rectangular} treemaps.
 More than 80\,\% of the studies included rectangular treemaps, while \emph{circular} and \emph{map-like} shapes were uncommon, with one and three studies, respectively. 
-There were only one study covering \emph{3D} treemaps and 12 studies containing \emph{2.5D} treemaps.
+There was only one study covering \emph{3D} treemaps and 12 studies containing \emph{2.5D} treemaps.
 More than half of the studies included \emph{non-nested} treemaps~\cite{johnson1993-categorical} (including \emph{cushion} treemaps~\cite{vanwijk1999-cushion}) and almost 40\,\% of the studies \emph{nested} treemaps (including \emph{titlebar} treemaps~\cite{goldberg2005-monitoring}) for topology depiction.
 Targeted tasks were categorized according to Cantu et al.~\cite{cantu2017-relations} and the corresponding visual variables or attributes.
 The most common task types were \emph{access information} tasks included in more than half of the studies, followed by \emph{sort}, \emph{distinguish}, and \emph{compare} tasks.
@@ -332,8 +335,8 @@ With 45\,\%, the most common tasks were locate-a-node tasks and sort-by-size tas
 \label{sec:summary:findings}
 The results of the studies are thematically widely scattered and range from VTC to eye-movement exploration patterns.
 To extract and summarize these results, statistically significant findings of the studies were reviewed and verified instead of the respective claims.
-These summarized findings are not intended for citation as they are broadly reduced statements with a too general meaning---without further revalidation and replication, we insinuate that the measured effects are not generalizable by the studies' designs; refer to the original publications instead.
-The dependent variables measures are stated as follows: effectiveness (E), efficiency (I), and user satisfaction (S)~\cite{leroy2011-designing}.
+These summarized findings are not intended for citation as they are broadly reduced statements with a too general meaning---without further revalidation and replication, we assume that the measured effects are not generalizable by the studies' designs; refer to the original publications instead.
+The dependent variable measures are stated as follows: effectiveness (E), efficiency (I), and user satisfaction (S)~\cite{leroy2011-designing}.
 
 \input{tables/studies_table_vis_comparison.tex}
 
@@ -358,8 +361,8 @@ Likewise, treemaps are more efficient for global-scope tasks than \emph{printout
 
 \paragraph{\textbf{Design Element Studies}}
 Multiple user studies examined new and existing \emph{visual variables} in the context of treemaps.
-\emph{Luminance} was found to be suitable to encode secondary attributes when size encodes primary values~\cite{kong2010-guidelines} and for \emph{color} the C-VPA coloring method showed improved size discrimination and higher aesthetic rankings than random coloring method~\cite{xie2017-coloraesthetics}.
-Newly proposed visual variables are \emph{sketchiness} in 2.5D~\cite{limberger2016-sketchy} and \emph{rectangular orientation} in 2D~\cite{liang2012-orientation}, both can be used as independent visual variables without noticeable impact on other visual variables.
+\emph{Luminance} was found to be suitable to encode secondary attributes when size encodes primary values~\cite{kong2010-guidelines} and for \emph{color} the C-VPA coloring method showed improved size discrimination and higher aesthetic rankings than random coloring~\cite{xie2017-coloraesthetics}.
+Newly proposed visual variables are \emph{sketchiness} in 2.5D~\cite{limberger2016-sketchy} and \emph{rectangular orientation} in 2D~\cite{liang2012-orientation}; both can be used as independent visual variables without noticeable impact on other visual variables.
 It should be noted that the accuracy of 2D \emph{size} judgement tasks suffers when the compared rectangles have extreme \emph{aspect ratio}s or when the rectangles are squares~\cite{kong2010-guidelines}.
 The findings of studies that compare \emph{layout algorithms} are so extensive that it is difficult to summarize them in this report and are therefore future work~\cite{bederson2002-quantum,hahn2017-directionchange,zhou2017-cartography}.
 \par
@@ -372,7 +375,7 @@ However, circular treemaps might have a better performance for structure extrema
 For different \emph{dimensionalities}---especially 2D and 2.5D---differences could not be confirmed~\cite{bladh2004-threedimensions}.
 \par
 Suitable \emph{focus and context} techniques for treemaps are Balloon Focus~\cite{tu2008-multifocus} and Drill-down~\cite{shi2005-contentbrowsing}.
-Users of animated treemaps will take more likely shortcuts and rate them higher than users of non-animated treemaps~\cite{bladh2005-transitions}.
+Users of animated treemaps are more likely to take shortcuts and rate them higher than users of non-animated treemaps~\cite{bladh2005-transitions}.
 As a supporting technique, node \emph{aggregation} is recognized by users and tasks that refer to determining nodes of interest are rated easier than without aggregation~\cite{limberger2017-aggregation}.
 Similarly, in 2.5D treemaps, interactive \emph{height-based filtering} might increase the accuracy of basic height-related tasks with only a marginal interaction overhead~\cite{limberger2018-filtering}.
 In \emph{image treemaps}, users prefer fewer images and the presence of labels~\cite{guerra-gomez2016-photo}, while two-level-clustering reduces image finding time~\cite{gomi2008-imagebrowser}.
@@ -380,7 +383,7 @@ In \emph{image treemaps}, users prefer fewer images and the presence of labels~\
 \paragraph{\textbf{Usability Studies}}
 During the exploration of a data set in a treemap visualization, certain \emph{visual exploration strategies} apply.
 Treemaps are effective in promoting task-relevant fixations~\cite{mueller2017-perception} and improve the user's perception of some patterns~\cite{wang2006-knowledgediscovery}.
-To explore these patterns in the underlying data treemap users used node, node count, node type, node size, structure, and content information~\cite{wang2006-knowledgediscovery}.
+To explore these patterns in the underlying data, treemap users used node, node count, node type, node size, structure, and content information~\cite{wang2006-knowledgediscovery}.
 However, treemap users constantly have to reorient and remember which elements were already processed~\cite{mueller2017-perception}.
 The simultaneous usage of complementary visualization techniques may increase the user's understanding of the visualized data~\cite{teoh2007-multipleviews}.
 By their way of visualizing structure, treemaps are more or less suited for certain \emph{task types}.
@@ -388,7 +391,7 @@ In contrast to size-related tasks where treemaps offer a good sense of this attr
 \par
 Remaining findings include \emph{shape}, \emph{dimension}, and \emph{interaction}.
 In map-like treemaps, users have a strong location recall with a clear understanding of islands, whereas landmarks might hinder interpretation of relationship discontiguity~\cite{hawes2015-codesurveyor}.
-While in \emph{virtual reality} the interaction with 2.5D treemaps can be implemented by rotation, translation, and selection gestures~\cite{fittkau2015-virtualreality}; 3D treemaps are %
+While in \emph{virtual reality} the interaction with 2.5D treemaps can be implemented by rotation, translation, and selection gestures~\cite{fittkau2015-virtualreality}, 3D treemaps are %
 suitable for exploration and long-term learning tasks~\cite{wiss1999-tasksupport}.
 
 \paragraph{\textbf{Meta Studies}}
@@ -400,12 +403,12 @@ Some user studies do not meet the requirements to be considered for further anal
 Due to a lack of a clear description of the results, the user studies on Euler diagrams were not considered~\cite{sathiyanarayanan2015-euler, sathiyanarayanan2015-graph}.
 Second, we did not consider a study targeting the combination of treemaps and node-link diagrams since the methodical approach is not appropriate~\cite{linsen2011-nodelink}.
 The authors tried to extend a previous user study~\cite{kobsa2004-systems} to compare their results with the other evaluation results.
-Due to a lack of comparability to the former user study---the used data set was different and the statistical data was not available---and no other comparable visualization that were evaluated within the same user study, the results were not considered.
+Due to a lack of comparability to the former user study---the used data set was different and the statistical data was not available---and no other comparable visualizations that were evaluated within the same user study, the results were not considered.
 Similarly, we had to discard a user study using eye tracking as the visualized amount of data differed between the compared visualizations~\cite{mathews2012-eyetracking}.
 Last, we do not consider a user study targeting photo arrangements using a treemap approach~\cite{guerra-gomez2016-photo}, as the complex interactions and learning effects were not discussed.
 
 \section{Critical Review} %
-Following, the treemap user studies are reviewed according to their quality, meaningfulness, and the resulting usefulness for the research community.
+In the following, the treemap user studies are reviewed according to their quality, meaningfulness, and the resulting usefulness for the research community.
 The objective is to determine whether the findings can be accepted as valid and, thus, considered as generalized statements.
 If not, the main problems and shortcomings encountered in the studies are briefly analyzed.
 
@@ -418,9 +421,9 @@ Almost no study discusses the interfering factors and the concluding validity is
 In addition to these design issues, the variable conditions in controlled experiments are often not randomized.
 Other frequently missing information includes detailed descriptions of data sets, participants, and procedure as well as values regarding statistical significance.
 About a quarter of the studies do not report on their participants' background.
-Typically, participants of treemap studies have none of domain knowledge, previous knowledge of treemaps, or experience therewith.
-Only a small amount of studies invited domain experts.
-The most common participant type are students of computer science or human-computer interaction.
+Typically, participants of treemap studies have no domain knowledge, previous knowledge of treemaps, or experience therewith.
+Only a small number of studies invited domain experts.
+The most common participant type is students of computer science or human-computer interaction.
 The number of participants is often too small to provide the statistical power or to serve the number of independent variables, as reported in previous surveys.
 Likewise, claims---especially stated in abstracts and conclusions---go far beyond the results.
 Even for studies that are not controlled experiments, results are sometimes verbally stated as valid generalized statements based on a causation. 
@@ -430,7 +433,7 @@ At this point, many researchers compare their approach with previous ones and tr
 This reduces the versatility of the study types used and thus the scope of the evaluation findings.
 Typically, such studies also test features of the user interface that are often not evaluated separately from the underlying visualization technique.
 Often, user studies derive their usage scenarios and tasks from previous publications, although no theoretical background is available.
-Since there is no standardized data set, each study uses own data set.
+Since there is no standardized data set, each study uses its own data set.
 Despite three consecutive studies by Ziemkiewicz~et~al.~\cite{ziemkiewicz2008-metaphors,ziemkiewicz2009-preconceptions,ziemkiewicz2011-locus}, there has not been one dedicated replication study on treemaps so far.
 \paragraph{\textbf{Task Compatibility}} %
 With the demand for fair control conditions, the configuration of a treemap depends on the task~\cite{johnson1993-categorical}.
@@ -439,8 +442,8 @@ For tasks that refer to structure, treemaps with a larger offset or titlebar tre
 Treemaps with cushion topology depiction~\cite{vanwijk1999-cushion} offer a trade-off between both needs.
 About 40\,\% of reviewed user studies contain tasks that refer to structure or tasks that refer to tree attributes, which are based on structure.
 Most of these studies configured their treemaps accordingly with offset or cushion.
-Whereas for the most common task attribute \emph{size}, only one third of the studies are properly configured. %
-The frequently used counting tasks---which appears in almost one fifth of the studies---in general do not fit visualization techniques that do have no support for a user interface.
+However, for the most common task attribute \emph{size}, only one third of the studies are properly configured. %
+The frequently used counting tasks---which appear in almost one fifth of the studies---in general do not fit visualization techniques that have no support for a user interface.
 According to Ziemkiewicz, the matching of visual and verbal metaphor is important~\cite{ziemkiewicz2008-metaphors}.
 Although treemaps visually rely on the containment metaphor, about half of the studies used the level metaphor in their task descriptions.
 Treemaps are able to simultaneously show multiple visual variables and the structure of a data set.
@@ -450,14 +453,14 @@ Only four studies contain tasks targeting three dimensions, and correlation stud
 \paragraph{\textbf{Coverage of Evaluation Topics}}
 In order to assess the user studies as an entirety, we use the proposed evaluation topics to rate coverage and identify underrepresented areas.
 With respect to \emph{Use Cases}, mainly VTC studies are relevant.
-Eleven techniques were compared and the results refer to three tasks types suitable for treemaps.
+Eleven techniques were compared and the results refer to three task types suitable for treemaps.
 An additional topic was the simultaneous visualization of treemaps and other techniques.
 While studies related to use cases include multiple studies, there is only one topic covered for \emph{Communication}. 
 With regard to \emph{Interaction} aspects, the reviewed user studies cover pattern matching and multiple focus-and-context techniques including filtering in 2.5D, node aggregation, and animation.
 The connection of visual quality and the encouragement of users was also evaluated.
 The entirety of user studies considers several \emph{Configurations}.
 From our assessment, questions regarding dimensionality are still open.
-The studies offer recommendations for shape, suitable to two tasks types extended by few qualitative insights.
+The studies offer recommendations for shape, suitable to two task types extended by few qualitative insights.
 For the selection of an appropriate topology depiction, there are three recommendations related to different task types.
 In total, six visual variables were examined, whereby two were new in the context of treemaps.
 Treemap layout studies require a systematic review including non-participant measures~\cite{vernier2020-comparison}.
@@ -481,13 +484,13 @@ The presented study results should be used as hints and guides for future resear
 Researchers should thoroughly review previous studies before referring to their results or claims.
 
 There is still little knowledge on which task types---and thus use cases or usage scenarios---are truly suitable to treemaps.
-Despite most-basic, theoretical background, there are no recommendations or guidelines on configuration that visualization designer could access.
+Despite most-basic, theoretical background, there are no recommendations or guidelines on configuration that visualization designers could access.
 Likewise, many perceptional aspects of treemaps are unclear.
 For example, there is no resilient data on the value of simultaneous usage of more than one visual variable---although it is frequently referred to.
 Advantages or disadvantages of 2.5D treemaps or 3D treemaps are still unclear.
 Further, open questions are suitable ranges of data set sizes, learnability of the containment metaphor, and the mental-map characteristic of treemaps referring to long-term understanding of data.
-With regards to a holistic view on treemaps, the previous studies are historically grown and lack an inherent structure.
-Up to date we know of no research agenda to structurally prove previous statements about treemaps and evaluate the remaining aspects.
+With regard to a holistic view on treemaps, the previous studies are historically grown and lack an inherent structure.
+To date, we know of no research agenda to structurally prove previous statements about treemaps and evaluate the remaining aspects.
 This might be caused by missing references for a visualization evaluation standard, although there are initial thoughts on that topic~\cite{zuk2006-heuristics}.
 
 \section{Conclusion}
@@ -500,7 +503,7 @@ We believe this evaluation, the review of previously published user studies, and
 \par
 As part of future work, we plan to prepare an overview of guidelines and conceptual models on user studies in information visualization to provide a systematic approach for researchers.
 A next step would be a research agenda with separate directions and projected effects.
-The provided data set is intended as a starting point and is target to get extended by the authors themselves to include evaluations of recently and future conducted user studies.
+The provided data set is intended as a starting point and is intended to be extended by the authors themselves to include evaluations of recently and future conducted user studies.
 Likewise, the insights from user studies targeting other tree and hierarchy visualization techniques are another area of interest for integration into the data set.
 But most importantly, we invite the information visualization community to collaborate on the user study data set.
 

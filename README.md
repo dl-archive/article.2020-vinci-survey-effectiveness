@@ -29,11 +29,23 @@ DOI: [10.1145/3430036.3430054](https://doi.org/10.1145/3430036.3430054) · Autho
 ```
 
 The paper was compiled on Overleaf in November 2020, which still ran TeX Live 2019; the build uses the matching TeX Live 2019 container.
-The build reproduces `fiedler2020-effectiveness-as-submitted.pdf` exactly (identical text, no pixel differences); TeX Live 2020 already changes one line break.
+On `main`, the build produces the revised version (`v1.1-revised`). Check out `v1.0-camera-ready` to reproduce `fiedler2020-effectiveness-as-submitted.pdf` exactly (identical text, no pixel differences); TeX Live 2020 already changes one line break.
 
 ## Versions
 
 - [`v1.0-camera-ready`](https://github.com/dl-archive/article.2020-vinci-survey-effectiveness/tree/v1.0-camera-ready) – sources as submitted to ACM (2020-11-03)
+- [`v1.1-revised`](https://github.com/dl-archive/article.2020-vinci-survey-effectiveness/tree/v1.1-revised) – author's revised version (2026-11-08): grammar and reference fixes, see [Revisions](#revisions)
+
+## Revisions
+
+`v1.1-revised` (2026-11-08) corrects errors in the camera-ready version without changing its content or layout.
+Every page carries the note "Author's revised version (2026-11-08). Version of record: https://doi.org/10.1145/3430036.3430054".
+
+- Spelling: "multivariate", "quasi-experiment", "affected by".
+- Grammar and word choice: "the community's understanding", "They examine", "a lack of", "the most common evaluation types", "change in another", "benefits, or drawbacks", "allows validating causation", "controlled experiments comparing design elements", "configuration of treemaps", "facilitate demonstrating", "In our review, we found", "Besides methodological sources of error", "These concepts relate … within a use case", "More details … are provided", "on average", "configuration of treemaps was", "There was only one study", "we assume", "dependent variable measures", "than random coloring", "are more likely to take shortcuts", "visualizations that were evaluated", "In the following", "have no domain knowledge", "a small number of studies", "participant type is students", "its own data set", "However, for the most common task attribute", "which appear", "that have no support", "task types" (2×), "visualization designers", "With regard to", "To date", "is intended to be extended", punctuation (commas, semicolons); Tables 1 and 2: "an assessment of".
+- References: "2.5D" (Limberger et al. 2016), "Euler" (Sathiyanarayanan and Burlutskiy), dash in "Survey of Surveys (SoS) – Mapping …", series "iV ’05" and "iV ’99", "David A. Carr".
+
+ORCIDs were not added: the bundled `acmart` (v1.71) ignores `\orcid`.
 
 ## Citation
 
